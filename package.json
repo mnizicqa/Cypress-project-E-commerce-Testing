@@ -1,0 +1,30 @@
+{
+  "name": "cypress-project-e-commerce-testing",
+  "version": "1.0.0",
+  "description": "Cypress Project E-commerce testing",
+  "main": "index.js",
+  "scripts": {
+    "triggerAllTests": "npx cypress open",
+    "triggerAllTests-headless": "npx cypress run",
+    "triggerAllTests-headed": "npx cypress run --headed",
+    "triggerAllTests-chrome": "npx cypress run --browser chrome --headed",
+    "triggerAllTests-cypressecommerce": "npx cypress run --spec cypress/e2e/cypress e-commerce _testing/*",
+    "junit-merge": "npx junit-merge -d cypress/results/junit -o cypress/results/junit/results.xml",
+    "delete-junit-report": "rm -rf cypress/results/junit/results.xml",
+    "delete-results": "rm -rf cypress/results/* || true",
+    "mochawesome-merge": "npx mochawesome-merge cypress/results/mochawesome/*.json > mochawesome.json && npx marge mochawesome.json",
+    "delete-mochawesome-report": "rm -rf mochawesome-report/* || true",
+    "cypress-regression-pack": "npm run delete-results && npm run delete-mochawesome-report && npm run triggerAllTests-headless && npm run mochawesome-merge ",
+    "cypress-multi-browser": "npm run triggerAllTests-headed -- --browser edge & npm run triggerAllTests--headed -- --browser firefox"
+  },
+  "author": "Mario Nizic",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.6.3",
+    "cypress-multi-reporters": "^1.6.4",
+    "mocha-junit-reporter": "^2.2.1",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.2.0"
+  }
+}
