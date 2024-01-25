@@ -18,7 +18,7 @@ describe("Error User Behavior", () => {
       });
   });
 
-  it("Error User Remove product after Add To Cart", () => {
+  it("Error User Remove Add To Cart", () => {
     cy.contains(".inventory_item", "Sauce Labs Fleece Jacket")
       .find('[data-test="add-to-cart-sauce-labs-fleece-jacket"]')
       .should("have.text", "Add to cart")
