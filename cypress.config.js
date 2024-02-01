@@ -39,5 +39,6 @@ module.exports = defineConfig({
       openMode: 1,
       runMode: 1,
     },
+    experimentalStudio: true,
   },
 });
