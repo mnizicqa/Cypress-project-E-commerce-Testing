@@ -90,9 +90,10 @@ Cypress.Commands.add(
   }
 );
 
-Cypress.Commands.add("loginWithoutPassword", () => {
+Cypress.Commands.add("loginWithoutPassword", (username) => {
   cy.visit("/");
-  cy.get('[data-test="username"]').type("test");
+  cy.get('[data-test="username"]').type(username);
+  cy.get('[data-test="password"]').type("{backspace}");
   cy.get('[data-test="login-button"]').click();
   cy.get('[data-test="error"]').should(
     "have.text",
@@ -100,9 +101,10 @@ Cypress.Commands.add("loginWithoutPassword", () => {
   );
 });
 
-Cypress.Commands.add("loginWithoutUsername", () => {
+Cypress.Commands.add("loginWithoutUsername", (password) => {
   cy.visit("/");
-  cy.get('[data-test="password"]').type("test");
+  cy.get('[data-test="username"]').type("{backspace}");
+  cy.get('[data-test="password"]').type(password);
   cy.get('[data-test="login-button"]').click();
   cy.get('[data-test="error"]').should(
     "have.text",
@@ -112,6 +114,8 @@ Cypress.Commands.add("loginWithoutUsername", () => {
 
 Cypress.Commands.add("loginWithoutUsernameAndPassword", () => {
   cy.visit("/");
+  cy.get('[data-test="username"]').type("{backspace}");
+  cy.get('[data-test="password"]').type("{backspace}");
   cy.get('[data-test="login-button"]').click();
   cy.get('[data-test="error"]').should(
     "have.text",

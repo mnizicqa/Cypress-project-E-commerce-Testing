@@ -10,6 +10,7 @@
     "triggerAllTests-chrome-headless": "npx cypress run --browser chrome",
     "triggerAllTests-chrome-headed": "npx cypress run --browser chrome --headed",
     "triggerAllTests-dashboard": "npx cypress run --record --key 72f06376-ef51-4c72-853e-8686a94cf901",
+    "triggerAllTests-cucumberTests": "npx cypress run --spec cypress/e2e/cypress e-commerce_testing/features/*.feature --browser chrome",
     "junit-merge": "npx junit-merge -d cypress/results/junit -o cypress/results/junit/results.xml",
     "delete-junit-report": "rm -rf cypress/results/junit/results.xml",
     "delete-results": "rm -rf cypress/results/* || true",
@@ -22,10 +23,15 @@
   "license": "ISC",
   "devDependencies": {
     "cypress": "^13.6.3",
+    "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-multi-reporters": "^1.6.4",
     "mocha-junit-reporter": "^2.2.1",
     "mochawesome": "^7.1.3",
     "mochawesome-merge": "^4.3.0",
     "mochawesome-report-generator": "^6.2.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "stepDefinitons": "cypress/e2e/support/step_definitions"
   }
 }

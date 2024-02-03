@@ -22,11 +22,11 @@ describe("Login Standard User", () => {
   });
 
   it("Login without typing password", () => {
-    cy.loginWithoutPassword();
+    cy.loginWithoutPassword("standard_user");
   });
 
   it("Login without typing username", () => {
-    cy.loginWithoutUsername();
+    cy.loginWithoutUsername("secret_sauce");
   });
 
   it("Login without typing username and password", () => {
