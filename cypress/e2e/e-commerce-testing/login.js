@@ -3,7 +3,6 @@
 describe("Login Standard User", () => {
   it("Login with correct credentials", () => {
     cy.login("standard_user", "secret_sauce");
-    cy.get(".app_logo").should("be.visible");
   });
 
   it("Login with wrong username", () => {

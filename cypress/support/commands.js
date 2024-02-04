@@ -25,10 +25,11 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add("login", (username, password) => {
-  cy.visit("https://www.saucedemo.com/");
+  cy.visit("/");
   cy.get('[data-test="username"]').type(username);
   cy.get('[data-test="password"').type(password);
   cy.get('[data-test="login-button"]').click();
+  cy.get(".app_logo").should("be.visible");
 });
 
 Cypress.Commands.add("checkErrorMessage", () => {
@@ -72,23 +73,9 @@ Cypress.Commands.add("clickContinue", () => {
   cy.get('[data-test="continue"]').click();
 });
 
-Cypress.Commands.add("checkErrorMessageLastName", ($selector, textToLocate) => {
+Cypress.Commands.add("checkErrorMessageText", ($selector, textToLocate) => {
   cy.get($selector).contains(textToLocate);
 });
-
-Cypress.Commands.add(
-  "checkErrorMessageFirstName",
-  ($selector, textToLocate) => {
-    cy.get($selector).contains(textToLocate);
-  }
-);
-
-Cypress.Commands.add(
-  "checkErrorMessagePostalCode",
-  ($selector, textToLocate) => {
-    cy.get($selector).contains(textToLocate);
-  }
-);
 
 Cypress.Commands.add("loginWithoutPassword", (username) => {
   cy.visit("/");
