@@ -1,5 +1,3 @@
-/// <reference types = "cypress"/>
-
 describe("Product Remove from cart", () => {
   beforeEach(() => {
     cy.login("standard_user", "secret_sauce");

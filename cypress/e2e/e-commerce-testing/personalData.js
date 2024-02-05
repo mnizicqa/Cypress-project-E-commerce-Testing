@@ -1,5 +1,3 @@
-/// <reference types = "cypress"/>
-
 describe("Test Personal Data input when using checkout", () => {
   before(() => {
     cy.fixture("personalDataInfo").then((data) => {

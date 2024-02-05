@@ -1,5 +1,3 @@
-///<reference types = "cypress"/>
-
 describe("Problem User Behavior", () => {
   beforeEach(() => {
     cy.login("problem_user", "secret_sauce");

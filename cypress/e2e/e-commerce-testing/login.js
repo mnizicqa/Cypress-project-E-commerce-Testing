@@ -1,5 +1,3 @@
-/// <reference types = "cypress"/>
-
 describe("Login Standard User", () => {
   it("Login with correct credentials", () => {
     cy.login("standard_user", "secret_sauce");

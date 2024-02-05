@@ -1,5 +1,3 @@
-/// <reference types = "cypress"/>
-
 describe("Product Purchase", () => {
   before(() => {
     cy.fixture("personalDataInfo").then((data) => {

@@ -1,5 +1,3 @@
-///<reference types = "cypress"/>
-
 describe("Product Sorting alphabetically or by price", () => {
   beforeEach(() => {
     cy.login("standard_user", "secret_sauce");
